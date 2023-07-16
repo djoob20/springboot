@@ -8,23 +8,23 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.webdev.studyportal.model.Course;
-import com.webdev.studyportal.service.CourseService;
+import com.webdev.studyportal.model.Article;
+import com.webdev.studyportal.service.ArticleService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-public class CourseController {
+public class ArticleController {
 	
 	@Autowired
-	private CourseService courseService;
-
-	@GetMapping("/courses")
-	public Iterable<Course> getAllCourses(){
-		return this.courseService.getAllCourses();
-	}
-	@GetMapping("/course/{courseId}")
-	public Optional <Course>getCourseById(final @PathVariable long courseId) {
-		return this.courseService.getCourseById(courseId);
-	}
+	private ArticleService articleService;
 	
+	@GetMapping("/articles")
+	public Iterable<Article> getAllCourses(){
+		return this.articleService.getAllArticles();
+	}
+	@GetMapping("/article/{articleId}")
+	public Optional <Article>getCourseById(final @PathVariable long articleId) {
+		return this.articleService.getArticleById(articleId);
+	}
+
 }
