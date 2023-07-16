@@ -18,14 +18,13 @@ public class CourseController {
 	@Autowired
 	private CourseService courseService;
 	
-	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/courses")
 	public Iterable<Course> getAllCourses(){
 		return this.courseService.getAllCourses();
 	}
-	@GetMapping("/courses/{courseId}")
+	@GetMapping("/course/{courseId}")
 	public Optional <Course>getCourseById(final @PathVariable long courseId) {
 		return this.courseService.getCourseById(courseId);
 	}
-
+	
 }
